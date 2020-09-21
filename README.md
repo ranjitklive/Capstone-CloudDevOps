@@ -1,2 +1,1 @@
-# Capstone-CloudDevOps
-Capstone- Cloud DevOps
+This repository contains Capstone Project of Udacity Cloud DevOps Engineer Nanodegree Program.
