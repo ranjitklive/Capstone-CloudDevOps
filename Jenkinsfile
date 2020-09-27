@@ -12,7 +12,7 @@ pipeline {
         stage('Build and Publish Docker Image'){
             steps{        
                 script{
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker') {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                     def blue = docker.build("ranjitklive/blue-image","-f blue-green/blue/Dockerfile blue-green/blue")
                     def green = docker.build("ranjitklive/green-image","-f blue-green/green/Dockerfile blue-green/green")
                     blue.push()
