@@ -167,7 +167,7 @@ Resources:
         Properties:
             Name: !Ref ClusterName
             Version: '1.14'
-            RoleArn: arn:aws:iam::894267647424:role/awsEKS
+            RoleArn: arn:aws:iam::892507683786:role/awsEKS
             ResourcesVpcConfig:
                 SecurityGroupIds:
                     -   !Ref ClusterControlPlaneSecurityGroup
