@@ -1,6 +1,6 @@
-## AWS Elastic Kubernetes Service - Blue Green Deployment
+## Udacity DevOps Capstone Project
 
-In this project you will apply the skills and knowledge which were developed throughout the Cloud DevOps Nanodegree program. These include:
+The purpose is to apply the skills and knowledge developed throughout the Cloud DevOps Nanodegree program. These include:
 
 * Working in AWS
 * Using Jenkins to implement Continuous Integration and Continuous Deployment
@@ -10,9 +10,9 @@ In this project you will apply the skills and knowledge which were developed thr
 * Building Docker containers in pipelines
 
 ---
-### Setting your AWS infrastructure
+### Setting-up AWS infrastructure
 
-For deploy your infrastructure execute the next script inside cloudformation/ folder:
+For deploying infrastructure, execute the below script found inside cloudformation/ folder:
 
     sh ./create.sh CloudDevOpsCapstone network_and_eks.yml network_and_eks.json
     
@@ -20,26 +20,25 @@ Note: The creation of EKS cluster takes almost 10 minutes
 
 ### Setting your pipeline for lint, build and publish your docker image
 
-For create your pipeline you have to add the file `Jenkinsfile` in jenkins, also before run the pipeline you have to do login in Docker for publish image task
+Jenkins build pipeline is defined in `Jenkinsfile`. Also, before running the pipeline, we have to login to Docker.com for publishing blue/gree docker image.
 
-### Blue Green deployment configuration is setting in Kubernetes using Controllers and Service
+### Blue Green deployment configuration setting in Kubernetes using Controllers and Service
 
-1) Apply blue controller inside blue-green/blue folder
+1) Apply blue controller within blue-green/blue folder
     
     `kubectl apply -f blue-controller.json`
     
-2) Apply green controller inside blue-green/green folder
+2) Apply green controller within blue-green/green folder
     
     `kubectl apply -f green-controller.json`
     
-3) Deploy service in blue-green/ folder
+3) Deploy service within blue-green/ folder
 
     `kubectl apply -f blue-green-service.json`
     
-   Then you can check the application deployed in your browser
+   Then you can check the application deployed in the browser
     
 4) For do a blue-green deployment update the section to **green** in blue-green-service.json file:
-
 
     "selector":{
           "app":"blue" 
@@ -49,6 +48,4 @@ For create your pipeline you have to add the file `Jenkinsfile` in jenkins, also
 
     `kubectl apply -f blue-green-service.json`
     
-    You can see how each POD is updated to the green version incrementally
-
----
+    We can see how each POD is updated to the green version incrementally
